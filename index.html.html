@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAISON DE L'AURA | Botanique & Haute Parfumerie</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Color Palette: Beige, Earthy Warm Brown, Deep Botanical Green
+                        beige: {
+                            50: '#FAF7F2',
+                            100: '#F4EFE6',
+                            200: '#E8DEC8',
+                            300: '#D8C7A5',
+                        },
+                        earthBrown: {
+                            light: '#8C6D53',
+                            DEFAULT: '#4A3525',
+                            dark: '#2C1E14',
+                        },
+                        forestGreen: {
+                            light: '#4A6B53',
+                            DEFAULT: '#1E3323',
+                            dark: '#122016',
+                        },
+                        sageGreen: '#8FA382',
+                        accentGold: '#C5A059'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF7F2;
+            color: #2C1E14;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        .luxury-card-beige {
+            background: #F4EFE6;
+            border: 1px solid #D8C7A5;
+            transition: all 0.4s ease;
+        }
+        .luxury-card-beige:hover {
+            transform: translateY(-6px);
+            border-color: #1E3323;
+            box-shadow: 0 12px 30px rgba(30, 51, 35, 0.1);
+        }
+        .luxury-card-green {
+            background: #1E3323;
+            color: #FAF7F2;
+            border: 1px solid #4A6B53;
+            transition: all 0.4s ease;
+        }
+        .luxury-card-green:hover {
+            transform: translateY(-6px);
+            border-color: #C5A059;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        .green-border {
+            border: 1px solid #4A6B53;
+        }
+        .brown-border {
+            border: 1px solid #8C6D53;
+        }
+    </style>
+</head>
+<body class="selection:bg-forestGreen selection:text-beige-50">
+
+    <!-- NAVBAR (BEIGE & FOREST GREEN ACCENTS) -->
+    <header class="sticky top-0 z-50 bg-beige-50/90 backdrop-blur-md border-b border-beige-300/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-forestGreen flex items-center justify-center bg-beige-100">
+                    <span class="font-serif italic font-bold text-xl text-forestGreen">A</span>
+                </div>
+                <div>
+                    <span class="font-serif text-xl md:text-2xl font-bold tracking-widest text-earthBrown-dark block leading-none">MAISON DE L'AURA</span>
+                    <span class="text-[9px] tracking-[0.25em] text-forestGreen uppercase font-semibold">PARIS • BOTANIQUE PARFUMERIE</span>
+                </div>
+            </a>
+
+            <!-- Scroll Menu Links -->
+            <nav class="hidden lg:flex items-center space-x-6 text-[11px] tracking-widest uppercase font-medium text-earthBrown">
+                <a href="#hero" class="hover:text-forestGreen transition-colors">Home</a>
+                <a href="#heritage" class="hover:text-forestGreen transition-colors">Heritage</a>
+                <a href="#fragrances" class="hover:text-forestGreen transition-colors">Fragrances</a>
+                <a href="#pyramid" class="hover:text-forestGreen transition-colors">Scent Pyramid</a>
+                <a href="#materials" class="hover:text-forestGreen transition-colors">Materials</a>
+                <a href="#process" class="hover:text-forestGreen transition-colors">Process</a>
+                <a href="#press" class="hover:text-forestGreen transition-colors">Press</a>
+                <a href="#atelier" class="hover:text-forestGreen transition-colors">Atelier</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="flex items-center gap-4">
+                <a href="#atelier" class="hidden sm:inline-block px-5 py-2.5 bg-forestGreen text-beige-50 text-[10px] tracking-widest uppercase font-semibold hover:bg-earthBrown transition-colors">
+                    Bespoke Order
+                </a>
+                <button onclick="toggleMenu()" class="lg:hidden text-forestGreen p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-beige-100 border-b border-beige-300 px-6 py-4 flex flex-col gap-3 text-xs uppercase tracking-widest text-earthBrown-dark font-medium">
+            <a href="#hero" onclick="toggleMenu()">Home</a>
+            <a href="#heritage" onclick="toggleMenu()">Heritage</a>
+            <a href="#fragrances" onclick="toggleMenu()">Fragrances</a>
+            <a href="#pyramid" onclick="toggleMenu()">Scent Pyramid</a>
+            <a href="#materials" onclick="toggleMenu()">Materials</a>
+            <a href="#process" onclick="toggleMenu()">Process</a>
+            <a href="#press" onclick="toggleMenu()">Press</a>
+            <a href="#atelier" onclick="toggleMenu()">Atelier</a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO PAGE (BEIGE & FOREST GREEN ACCENTS) -->
+    <section id="hero" class="min-h-[92vh] flex items-center justify-center relative px-6 py-20 bg-gradient-to-b from-beige-100 via-beige-50 to-beige-200">
+        <div class="max-w-4xl mx-auto text-center space-y-6 relative z-10">
+            <span class="text-xs font-semibold tracking-[0.35em] text-forestGreen uppercase block">Extrait de Botanique Collection</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-earthBrown-dark font-normal leading-tight">
+                Essence of Earth & <span class="italic font-light text-forestGreen">Botanical Elegance</span>
+            </h1>
+            <p class="text-xs md:text-sm text-earthBrown max-w-2xl mx-auto font-light leading-relaxed">
+                Handcrafted in Grasse, France. A rare harmony of botanical flora, wild moss, and warm wood resins curated for those who seek timeless sophistication.
+            </p>
+            <div class="pt-6 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#fragrances" class="px-8 py-4 bg-forestGreen text-beige-50 text-xs tracking-[0.2em] uppercase font-semibold hover:bg-earthBrown transition-colors shadow-md">
+                    Explore Collection
+                </a>
+                <a href="#heritage" class="px-8 py-4 border border-earthBrown text-earthBrown text-xs tracking-[0.2em] uppercase font-semibold hover:bg-earthBrown hover:text-beige-50 transition-colors">
+                    Our Philosophy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: HERITAGE & STORY (DEEP FOREST GREEN BACKGROUND) -->
+    <section id="heritage" class="py-24 px-6 bg-forestGreen text-beige-50 border-t border-forestGreen-light">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-sageGreen uppercase">01 • Botanical Heritage</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-beige-50">Born in Grasse, Nurtured by Nature</h2>
+                <div class="w-12 h-[1px] bg-accentGold mx-auto my-4"></div>
+                <p class="text-xs md:text-sm text-beige-200/80 font-light leading-relaxed">
+                    Founded in 1924, Maison De L'Aura fuses centuries-old French distillation with pure botanical sustainability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative rounded overflow-hidden green-border shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&q=80&w=800" alt="Botanical Perfume Alchemy" class="w-full h-[400px] object-cover">
+                </div>
+                <div class="space-y-6">
+                    <span class="text-xs tracking-[0.2em] text-sageGreen uppercase font-semibold">Artisanal Sourcing</span>
+                    <h3 class="font-serif text-3xl text-beige-50">Organic Harvests & Wood Barrel Aging</h3>
+                    <p class="text-xs md:text-sm text-beige-200/80 leading-relaxed font-light">
+                        Every drop of our perfume matures for 8 weeks in oak barrels, blending wild-picked florals with warm cedarwood and earthy patchouli base notes.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded border border-sageGreen/30 bg-forestGreen-dark">
+                            <span class="font-serif text-3xl text-accentGold block">100%</span>
+                            <span class="text-[10px] uppercase tracking-widest text-beige-200/70">Organic Botanicals</span>
+                        </div>
+                        <div class="p-4 rounded border border-sageGreen/30 bg-forestGreen-dark">
+                            <span class="font-serif text-3xl text-accentGold block">8 Weeks</span>
+                            <span class="text-[10px] uppercase tracking-widest text-beige-200/70">Oak Barrel Ageing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FAMOUS FRAGRANCES (WARM BEIGE SECTION) -->
+    <section id="fragrances" class="py-24 px-6 bg-beige-100 border-t border-beige-300">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-forestGreen uppercase">02 • Signature Collection</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-earthBrown-dark">Famous Olfactive Masterpieces</h2>
+                <p class="text-xs md:text-sm text-earthBrown font-light">Explore our most famous fragrance families in rich earthy and green accords.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Perfume 1 -->
+                <div class="luxury-card-beige p-6 rounded text-left flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 rounded bg-beige-200 mb-4 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=600" alt="Velours Royale" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-forestGreen text-beige-50 text-[9px] uppercase tracking-widest px-2.5 py-1 font-semibold">Best Seller</span>
+                        </div>
+                        <span class="text-[9px] tracking-[0.2em] text-earthBrown-light uppercase font-bold">Woody Floral</span>
+                        <h3 class="font-serif text-2xl text-earthBrown-dark font-bold">Velours Botanique</h3>
+                        <p class="text-xs text-earthBrown my-2 font-light">French Rose, Wild Moss, Vetiver & Warm Sandalwood.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-beige-300 flex justify-between items-center">
+                        <span class="font-serif text-xl font-bold text-earthBrown-dark">$280</span>
+                        <button class="px-4 py-2 text-[10px] uppercase tracking-widest bg-forestGreen text-beige-50 hover:bg-earthBrown transition-colors font-semibold">Details</button>
+                    </div>
+                </div>
+
+                <!-- Perfume 2 -->
+                <div class="luxury-card-beige p-6 rounded text-left flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 rounded bg-beige-200 mb-4 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&q=80&w=600" alt="Oud Forestier" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] tracking-[0.2em] text-earthBrown-light uppercase font-bold">Earthy Forest</span>
+                        <h3 class="font-serif text-2xl text-earthBrown-dark font-bold">Oud Forestier</h3>
+                        <p class="text-xs text-earthBrown my-2 font-light">Aged Cambodian Oud, Green Cypress, Cedarwood & Leather.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-beige-300 flex justify-between items-center">
+                        <span class="font-serif text-xl font-bold text-earthBrown-dark">$340</span>
+                        <button class="px-4 py-2 text-[10px] uppercase tracking-widest bg-forestGreen text-beige-50 hover:bg-earthBrown transition-colors font-semibold">Details</button>
+                    </div>
+                </div>
+
+                <!-- Perfume 3 -->
+                <div class="luxury-card-beige p-6 rounded text-left flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 rounded bg-beige-200 mb-4 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=600" alt="Sauge & Citrus" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-[9px] tracking-[0.2em] text-earthBrown-light uppercase font-bold">Fresh Botanical</span>
+                        <h3 class="font-serif text-2xl text-earthBrown-dark font-bold">Sauge & Bergamot</h3>
+                        <p class="text-xs text-earthBrown my-2 font-light">Calabrian Bergamot, Clary Sage, Sea Salt & Green Amber.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-beige-300 flex justify-between items-center">
+                        <span class="font-serif text-xl font-bold text-earthBrown-dark">$250</span>
+                        <button class="px-4 py-2 text-[10px] uppercase tracking-widest bg-forestGreen text-beige-50 hover:bg-earthBrown transition-colors font-semibold">Details</button>
+                    </div>
+                </div>
+
+                <!-- Perfume 4 -->
+                <div class="luxury-card-beige p-6 rounded text-left flex flex-col justify-between">
+                    <div>
+                        <div class="h-64 rounded bg-beige-200 mb-4 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&q=80&w=600" alt="Vanilla Terre" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-earthBrown text-beige-50 text-[9px] uppercase tracking-widest px-2.5 py-1 font-semibold">Limited</span>
+                        </div>
+                        <span class="text-[9px] tracking-[0.2em] text-earthBrown-light uppercase font-bold">Earthy Gourmand</span>
+                        <h3 class="font-serif text-2xl text-earthBrown-dark font-bold">Vanilla Terre</h3>
+                        <p class="text-xs text-earthBrown my-2 font-light">Bourbon Vanilla, Tonka Bean, Oakmoss & Earthy Patchouli.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-beige-300 flex justify-between items-center">
+                        <span class="font-serif text-xl font-bold text-earthBrown-dark">$295</span>
+                        <button class="px-4 py-2 text-[10px] uppercase tracking-widest bg-forestGreen text-beige-50 hover:bg-earthBrown transition-colors font-semibold">Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE SCENT PYRAMID (EARTH BROWN BG) -->
+    <section id="pyramid" class="py-24 px-6 bg-earthBrown text-beige-50 border-t border-earthBrown-light">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-beige-300 uppercase">03 • Olfactive Breakdown</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-beige-50">Scent Note Pyramid</h2>
+                <p class="text-xs md:text-sm text-beige-200/80 font-light">How our botanical perfume unfolds smoothly on your skin.</p>
+            </div>
+
+            <div class="bg-earthBrown-dark p-8 md:p-12 rounded brown-border space-y-8 text-center max-w-3xl mx-auto shadow-xl">
+                <div class="space-y-2 border-b border-earthBrown-light/40 pb-6">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-beige-300 font-semibold">Top Notes (0 - 30 Mins)</span>
+                    <h3 class="font-serif text-2xl text-beige-50">Calabrian Bergamot & Clary Sage</h3>
+                    <p class="text-xs text-beige-200/70 font-light">Sparkling green opening that introduces the scent journey.</p>
+                </div>
+                <div class="space-y-2 border-b border-earthBrown-light/40 pb-6">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-beige-300 font-semibold">Heart / Middle Notes (30 Mins - 4 Hours)</span>
+                    <h3 class="font-serif text-2xl text-beige-50">Rose de Mai & Earthy Patchouli</h3>
+                    <p class="text-xs text-beige-200/70 font-light">The core flora heart that blossoms with natural warmth.</p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-beige-300 font-semibold">Base Notes (4 Hours - 24 Hours)</span>
+                    <h3 class="font-serif text-2xl text-beige-50">French Oakmoss, Cedarwood & Vetiver</h3>
+                    <p class="text-xs text-beige-200/70 font-light">Deep forest-green sillage that endures all day long.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: RARE BOTANICAL MATERIALS (BEIGE & GREEN CARDS) -->
+    <section id="materials" class="py-24 px-6 bg-beige-50 border-t border-beige-300">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-forestGreen uppercase">04 • Raw Ingredients</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-earthBrown-dark">Natural Palette & Materials</h2>
+                <p class="text-xs md:text-sm text-earthBrown font-light">Pure, ethically harvested ingredients sourced directly from sustainable floral farms.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Material 1 -->
+                <div class="luxury-card-beige p-8 rounded space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-forestGreen text-beige-50 flex items-center justify-center">
+                        <i data-lucide="flower-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-earthBrown-dark">French Rose de Mai</h3>
+                    <p class="text-xs text-earthBrown leading-relaxed font-light">
+                        Harvested in Grasse at dawn in May. Requires 5,000kg of fresh rose petals to yield 1kg of essential oil.
+                    </p>
+                </div>
+
+                <!-- Material 2 -->
+                <div class="luxury-card-beige p-8 rounded space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-forestGreen text-beige-50 flex items-center justify-center">
+                        <i data-lucide="trees" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-earthBrown-dark">Atlas Cedar & Oakmoss</h3>
+                    <p class="text-xs text-earthBrown leading-relaxed font-light">
+                        Sourced from high-altitude forests, bringing grounded woody notes and rich, moist green earthy depth.
+                    </p>
+                </div>
+
+                <!-- Material 3 -->
+                <div class="luxury-card-beige p-8 rounded space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-forestGreen text-beige-50 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-earthBrown-dark">Organic Clary Sage</h3>
+                    <p class="text-xs text-earthBrown leading-relaxed font-light">
+                        Steam-distilled from organic Mediterranean herbs, providing a clean, aromatic herbal radiance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ARTISANAL PROCESS (DEEP FOREST GREEN BG) -->
+    <section id="process" class="py-24 px-6 bg-forestGreen text-beige-50 border-t border-forestGreen-light">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-sageGreen uppercase">05 • Craftsmanship</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-beige-50">4 Steps of Scent Alchemy</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="p-6 bg-forestGreen-dark rounded green-border space-y-3">
+                    <span class="font-serif text-3xl text-accentGold">01</span>
+                    <h3 class="font-serif text-xl text-beige-50">Dawn Harvesting</h3>
+                    <p class="text-xs text-beige-200/70 font-light leading-relaxed">Botanicals hand-picked at peak oil density early morning.</p>
+                </div>
+                <div class="p-6 bg-forestGreen-dark rounded green-border space-y-3">
+                    <span class="font-serif text-3xl text-accentGold">02</span>
+                    <h3 class="font-serif text-xl text-beige-50">Steam Distillation</h3>
+                    <p class="text-xs text-beige-200/70 font-light leading-relaxed">Pure cold extraction without chemical solvents.</p>
+                </div>
+                <div class="p-6 bg-forestGreen-dark rounded green-border space-y-3">
+                    <span class="font-serif text-3xl text-accentGold">03</span>
+                    <h3 class="font-serif text-xl text-beige-50">Oak Ageing</h3>
+                    <p class="text-xs text-beige-200/70 font-light leading-relaxed">8 weeks oak barrel maceration for natural harmony.</p>
+                </div>
+                <div class="p-6 bg-forestGreen-dark rounded green-border space-y-3">
+                    <span class="font-serif text-3xl text-accentGold">04</span>
+                    <h3 class="font-serif text-xl text-beige-50">Hand Pouring</h3>
+                    <p class="text-xs text-beige-200/70 font-light leading-relaxed">Poured into recycled glass flacons with green wax seals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: PRESS & REVIEWS (EARTH BROWN & BEIGE CARDS) -->
+    <section id="press" class="py-24 px-6 bg-beige-100 border-t border-beige-300">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-forestGreen uppercase">06 • Accolades</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-earthBrown-dark">In The Global Press</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="luxury-card-beige p-8 rounded text-center space-y-4">
+                    <p class="font-serif text-lg italic text-earthBrown-dark">"Maison De L'Aura redefines green luxury perfumery. Velours Botanique is pure organic magic."</p>
+                    <span class="text-xs uppercase tracking-widest text-forestGreen font-bold block">— VOGUE PARIS</span>
+                </div>
+                <div class="luxury-card-beige p-8 rounded text-center space-y-4">
+                    <p class="font-serif text-lg italic text-earthBrown-dark">"The earthy green notes and cedarwood sillage remain unmatched in modern perfumery."</p>
+                    <span class="text-xs uppercase tracking-widest text-forestGreen font-bold block">— HARPER'S BAZAAR</span>
+                </div>
+                <div class="luxury-card-beige p-8 rounded text-center space-y-4">
+                    <p class="font-serif text-lg italic text-earthBrown-dark">"An authentic, grounded masterpiece in sustainable luxury fragrance."</p>
+                    <span class="text-xs uppercase tracking-widest text-forestGreen font-bold block">— GQ INTERNATIONAL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT ATELIER & STUDIO (FOREST GREEN & BEIGE COMBINATION) -->
+    <section id="atelier" class="py-24 px-6 bg-forestGreen text-beige-50 border-t border-forestGreen-light">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-semibold tracking-[0.3em] text-sageGreen uppercase">07 • Atelier Concierge</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-beige-50">Contact Our Botanical Studio</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Form -->
+                <form class="space-y-4 bg-forestGreen-dark p-8 rounded green-border" onsubmit="event.preventDefault(); alert('Merci! Your botanical inquiry has been sent.');">
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-sageGreen font-semibold block mb-1">Full Name</label>
+                        <input type="text" placeholder="e.g. Eleanor Vance" class="w-full px-4 py-3 bg-forestGreen border border-sageGreen/40 rounded text-xs text-beige-50 focus:outline-none focus:border-accentGold">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-sageGreen font-semibold block mb-1">Email Address</label>
+                        <input type="email" placeholder="eleanor@example.com" class="w-full px-4 py-3 bg-forestGreen border border-sageGreen/40 rounded text-xs text-beige-50 focus:outline-none focus:border-accentGold">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-sageGreen font-semibold block mb-1">Subject</label>
+                        <select class="w-full px-4 py-3 bg-forestGreen border border-sageGreen/40 rounded text-xs text-beige-50 focus:outline-none focus:border-accentGold">
+                            <option>Bespoke Custom Perfume Creation</option>
+                            <option>Private Atelier Appointment</option>
+                            <option>Order & Delivery Inquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-sageGreen font-semibold block mb-1">Message</label>
+                        <textarea rows="4" placeholder="How can we assist your botanical journey?" class="w-full px-4 py-3 bg-forestGreen border border-sageGreen/40 rounded text-xs text-beige-50 focus:outline-none focus:border-accentGold"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-earthBrown text-beige-50 text-xs tracking-[0.2em] uppercase font-bold hover:bg-beige-100 hover:text-earthBrown transition-colors">
+                        Send Message
+                    </button>
+                </form>
+
+                <!-- Studio Address Info -->
+                <div class="bg-forestGreen-dark p-8 rounded green-border flex flex-col justify-between space-y-8">
+                    <div>
+                        <span class="text-xs font-semibold tracking-[0.25em] text-accentGold uppercase">Flagship Atelier</span>
+                        <h3 class="font-serif text-3xl text-beige-50 mt-2">Paris Boutique</h3>
+                        
+                        <div class="mt-8 space-y-4 text-xs text-beige-200/80 font-light">
+                            <p class="flex items-start gap-3">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-accentGold shrink-0"></i>
+                                <span>24 Rue du Faubourg Saint-Honoré, 75008 Paris, France</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-accentGold shrink-0"></i>
+                                <span>+33 1 42 68 00 00</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-accentGold shrink-0"></i>
+                                <span>concierge@maison-aura.com</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-sageGreen/30">
+                        <h4 class="font-serif text-xl text-accentGold mb-2">Private Consultation Hours</h4>
+                        <p class="text-xs text-beige-200/70 font-light">Monday – Saturday: 10:00 AM – 7:00 PM</p>
+                        <p class="text-xs text-beige-200/70 font-light">Sunday: By Appointment Only</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (EARTH BROWN DARK BG) -->
+    <footer class="bg-earthBrown-dark text-beige-50 pt-16 pb-12 border-t border-earthBrown-light/40">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 text-xs">
+            <div class="space-y-4">
+                <span class="font-serif text-2xl font-bold tracking-widest text-beige-50 block">MAISON DE L'AURA</span>
+                <p class="text-beige-200/60 font-light leading-relaxed">Artisanal Botanical Parfumerie crafting memory through scent since 1924.</p>
+            </div>
+            <div>
+                <h4 class="font-serif text-lg text-sageGreen mb-4">Quick Navigation</h4>
+                <ul class="space-y-2 text-beige-200/80 font-light">
+                    <li><a href="#hero" class="hover:text-sageGreen transition-colors">Home</a></li>
+                    <li><a href="#heritage" class="hover:text-sageGreen transition-colors">Heritage</a></li>
+                    <li><a href="#fragrances" class="hover:text-sageGreen transition-colors">Fragrances</a></li>
+                    <li><a href="#materials" class="hover:text-sageGreen transition-colors">Materials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif text-lg text-sageGreen mb-4">Client Care</h4>
+                <ul class="space-y-2 text-beige-200/80 font-light">
+                    <li><a href="#" class="hover:text-sageGreen transition-colors">Bespoke Consultations</a></li>
+                    <li><a href="#" class="hover:text-sageGreen transition-colors">Worldwide Shipping</a></li>
+                    <li><a href="#" class="hover:text-sageGreen transition-colors">Sample Discovery Kits</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg text-sageGreen">Private Gazette</h4>
+                <p class="text-beige-200/60 font-light">Subscribe for private botanical release invitations.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your email" class="bg-earthBrown px-3 py-2 text-xs border border-earthBrown-light rounded-l focus:outline-none text-beige-50 w-full">
+                    <button class="bg-forestGreen text-beige-50 font-bold px-4 rounded-r uppercase text-[10px] hover:bg-sageGreen hover:text-earthBrown-dark transition-colors">Join</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-beige-200/10 text-center text-[10px] text-beige-200/40 uppercase tracking-widest">
+            © 2026 MAISON DE L'AURA PARIS. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Mobile Navigation Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
